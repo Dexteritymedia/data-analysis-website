@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+
+<h1>Welcome {{request.user.username}}</h1>
+<div class="col-12">
+ <a href="{% url 'file-upload' %}">Upload File</a>
+ </div>
+ 
+<div class="col-2">
+
+{% for item in files %}
+
+	<a href="{% url 'data-analysis' item.id item.slug %}"> File</a>
+	
+{% if item.file_description %}{{item.file_description}} {% endif %}
+<hr/>
+{% endfor %}
+</div>
+</div>
+</div>
+
+{% endblock content %}

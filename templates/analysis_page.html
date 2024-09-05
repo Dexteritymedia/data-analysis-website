@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="row">
+ 
+<div class="col-sm-2">
+
+<h1 style="font-size: 50px;"><b>All Files</b></h1>
+{% for item in users_files %}
+
+	<a href="{% url 'data-analysis' item.id item.slug %}"> File {% if item.file_description %}{{item.file_description}} {% endif %}</a>
+<hr/>
+
+{% endfor %}
+</div>
+
+<div class="col-sm-10">
+
+{{ data_analysis }}
+
+</div>
+</div>
+</div>
+
+{% endblock content %}
